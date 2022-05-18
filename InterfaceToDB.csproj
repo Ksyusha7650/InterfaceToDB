@@ -79,6 +79,12 @@
     <Compile Include="Manager\ShowOrders.Designer.cs">
       <DependentUpon>ShowOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\WIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\WIP.Designer.cs">
+      <DependentUpon>WIP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\WriteOffMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ShowOrders.resx">
       <DependentUpon>ShowOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\WIP.resx">
+      <DependentUpon>WIP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\WriteOffMaterial.resx">
       <DependentUpon>WriteOffMaterial.cs</DependentUpon>

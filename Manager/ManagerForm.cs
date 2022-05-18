@@ -32,28 +32,42 @@ namespace InterfaceToDB
             {
                 comboBoxWh.Items.Add(id_warehouse);
             }
+            foreach (ToolStripMenuItem item in menu.Items)
+            {
+                SetColorMenuStrip(item);
+            }
+            menu.Renderer = new ToolStripProfessionalRenderer(new Colors());
         }
-
+        public void SetColorMenuStrip(ToolStripMenuItem item)
+        {
+            item.ForeColor = Color.White;
+            foreach (ToolStripMenuItem item2 in item.DropDownItems)
+            {
+                SetColorMenuStrip(item2);
+            }
+        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mainForm.Show();
             this.Close();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonOK_Click(object sender, EventArgs e)
         {
             //TODO: проверка на пустые значения
-            string product = comboBoxProduct.SelectedItem.ToString();
-            int warehouse = Int32.Parse(comboBoxWh.SelectedItem.ToString());
-            int amount = (int)numericUpDownAmount.Value;
-            int id_product = DataBase.GetIdProduct(product);
-            DataBase.InsertProdOrderToList(id_product, amount, warehouse);
-            MessageBox.Show("Added!");
+            try
+            {
+                string product = comboBoxProduct.SelectedItem.ToString();
+                int warehouse = Int32.Parse(comboBoxWh.SelectedItem.ToString());
+                int amount = (int)numericUpDownAmount.Value;
+                int id_product = DataBase.GetIdProduct(product);
+                DataBase.InsertProdOrderToList(id_product, amount, warehouse);
+                MessageBox.Show("Added!");
+            }
+            catch
+            {
+                MessageBox.Show("Input value!");
+            }
         }
 
         private void showRestToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,6 +80,12 @@ namespace InterfaceToDB
         {
             ShowOrders showOrders = new ShowOrders();
             showOrders.ShowDialog();
+        }
+
+        private void shoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WIP wip = new WIP();
+            wip.ShowDialog();
         }
     }
 }

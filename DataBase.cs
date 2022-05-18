@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
@@ -40,8 +37,8 @@ namespace InterfaceToDB
                     name = reader.GetString(0);
                 }
             }
-            return name;
             conn.Close();
+            return name;
         }
 
         public static List<WriteOffProd> GetWriteOffList(int id_order)
@@ -67,8 +64,9 @@ namespace InterfaceToDB
                     }
                 }
             }
-            return writeOffProds;
             conn.Close();
+            return writeOffProds;
+
         }
 
         public static string ProductName(int id_prod)
@@ -85,8 +83,9 @@ namespace InterfaceToDB
                     name = reader.GetString(0);
                 }
             }
-            return name;
             conn.Close();
+            return name;
+
         }
         public static List<ProductionOrders> GetProdOrdersList()
         {
@@ -112,9 +111,34 @@ namespace InterfaceToDB
                     }
                 }
             }
-            return prodOrders;
             conn.Close();
+            return prodOrders;
         }
+
+        public static List<WorkInProcess> GetWIPList()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "SELECT * FROM workinprocess;";
+            var reader = myCommand.ExecuteReader();
+            List<WorkInProcess> workInProcesses = new List<WorkInProcess>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int order = reader.GetInt32(1);
+                    int amount = reader.GetInt32(2);
+                    int id_prod = reader.GetInt32(3);
+                    WorkInProcess workInProcess = new WorkInProcess(id, order, amount, id_prod);
+                    workInProcesses.Add(workInProcess);
+                }
+            }
+            conn.Close();
+            return workInProcesses;
+        }
+
         public static List<Storage> GetStorageList(int par_id_wh, int par_id_prod)
         {
             Connect();
@@ -133,13 +157,14 @@ namespace InterfaceToDB
                     myCommand.Parameters.AddWithValue("@ID_Warehouse", par_id_wh);
                     myCommand.CommandText = "SELECT * FROM storage where ID_Warehouse = @ID_Warehouse";
                 }
-                else {
+                else
+                {
                     myCommand.Parameters.AddWithValue("@ID_Warehouse", par_id_wh);
                     myCommand.Parameters.AddWithValue("@ID_Product", par_id_prod);
                     myCommand.CommandText = "SELECT * FROM storage where ID_Warehouse = @ID_Warehouse and ID_Product = @ID_Product";
                 }
             }
-            List <Storage> storageList = new List<Storage>();
+            List<Storage> storageList = new List<Storage>();
             using (var reader = myCommand.ExecuteReader())
             {
                 if (reader.HasRows)
@@ -154,8 +179,9 @@ namespace InterfaceToDB
                     }
                 }
             }
-            return storageList;
             conn.Close();
+            return storageList;
+
         }
 
         public static Int32 GetIdOperation(string name)
@@ -170,11 +196,11 @@ namespace InterfaceToDB
             {
                 while (reader.Read())
                 {
-                     operation = reader.GetInt32(0);
+                    operation = reader.GetInt32(0);
                 }
             }
-            return operation;
             conn.Close();
+            return operation;
         }
 
         public static Int32 GetIdProduct(string name)
@@ -192,11 +218,11 @@ namespace InterfaceToDB
                     product = reader.GetInt32(0);
                 }
             }
-            return product;
             conn.Clone();
+            return product;
         }
 
-        public static List <String> GetProducts()
+        public static List<String> GetProducts()
         {
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
@@ -208,11 +234,11 @@ namespace InterfaceToDB
             {
                 while (reader.Read())
                 {
-                    products.Add(reader.GetString(0)); 
+                    products.Add(reader.GetString(0));
                 }
             }
-           return products;
-           conn.Close();
+            conn.Close();
+            return products;
         }
 
         public static List<Int32> GetWarehouses()
@@ -230,9 +256,10 @@ namespace InterfaceToDB
                     warehouses.Add(reader.GetInt32(0));
                 }
             }
-            return warehouses;
             conn.Close();
+            return warehouses;
         }
+       
 
         public static List<String> GetOperations()
         {
@@ -249,8 +276,8 @@ namespace InterfaceToDB
                     operations.Add(reader.GetString(0));
                 }
             }
-            return operations;
             conn.Close();
+            return operations;
         }
 
         public static void InsertMaterialsToList(int id_order, int id_operation, int id_product, int amount)
@@ -268,7 +295,7 @@ namespace InterfaceToDB
             {
                 myCommand.ExecuteNonQuery();
             }
-            catch (MySqlException ex)
+            catch
             {
                 MessageBox.Show("Недостаточно списываемого материала.");
             }
@@ -291,8 +318,8 @@ namespace InterfaceToDB
                     check = reader.GetBoolean(0);
                 }
             }
-            return check;
             conn.Clone();
+            return check;
         }
 
         public static void InsertProdOrderToList(int id_product, int amount, int id_wh)
@@ -308,7 +335,5 @@ namespace InterfaceToDB
             myCommand.ExecuteNonQuery();
             conn.Close();
         }
-
-      
     }
 }

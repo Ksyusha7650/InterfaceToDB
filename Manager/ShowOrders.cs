@@ -39,7 +39,6 @@ namespace InterfaceToDB
                     buttonDis.Enabled = false;
                 }
             }*/
-
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -49,9 +48,6 @@ namespace InterfaceToDB
 
         private void listOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-/*            int indexCol = listOrders.SelectedColumns[0].Index;
-            if (indexCol == 6)
-            {*/
                 int index = listOrders.SelectedCells[0].RowIndex;
                 int ID_Order = (int)listOrders.Rows[index].Cells[0].Value;
                 bool check = DataBase.CheckIDToDevelop(ID_Order);
@@ -60,7 +56,6 @@ namespace InterfaceToDB
                     WriteOffMaterial writeOff = new WriteOffMaterial(ID_Order);
                     writeOff.ShowDialog();
                 }
-           // }
         }
     }
 }
