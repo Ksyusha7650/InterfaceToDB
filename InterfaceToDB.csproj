@@ -47,7 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBase.cs" />
+    <Compile Include="Database\GetBool.cs" />
+    <Compile Include="Database\GetString.cs" />
+    <Compile Include="Database\GetInt.cs" />
+    <Compile Include="Database\Insert.cs" />
+    <Compile Include="Database\GetLists.cs" />
     <Compile Include="ChooseUser.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -20,12 +20,12 @@ namespace InterfaceToDB
             InitializeComponent();
             materials = list;
             formMat = form;
-            materialNames = DataBase.GetProducts(0);
+            materialNames = GetLists.GetProducts(0);
             foreach(string materialName in materialNames)
             {
                 comboBoxProduct.Items.Add(materialName);
             }
-            prodOperations = DataBase.GetOperations();
+            prodOperations = GetLists.GetOperations();
             foreach (string operationName in prodOperations)
             {
                 comboBoxOperation.Items.Add(operationName);
@@ -39,17 +39,17 @@ namespace InterfaceToDB
             {
                 string operation = comboBoxOperation.SelectedItem.ToString();
                 string product = comboBoxProduct.SelectedItem.ToString();
-                int id_operation = DataBase.GetIdOperation(operation);
-                int id_product = DataBase.GetIdProduct(product);
+                int id_operation = GetInt.GetIdOperation(operation);
+                int id_product = GetInt.GetIdProduct(product);
                 int amount = (int)numericUpDownAmount.Value;
                 int id_order = formMat.order;
-                DataBase.InsertMaterialsToList(id_order, id_operation, id_product, amount);
+                Insert.InsertMaterialsToList(id_order, id_operation, id_product, amount);
                 formMat.tableMaterials.Rows.Clear();
-                materials = DataBase.GetWriteOffList(id_order);
+                materials = GetLists.GetWriteOffList(id_order);
                 foreach (WriteOffProd prod in materials)
                 {
-                    product = DataBase.ProductName(prod.Product);
-                    operation = DataBase.OperationName(prod.Operation);
+                    product = GetString.ProductName(prod.Product);
+                    operation = GetString.OperationName(prod.Operation);
                     formMat.tableMaterials.Rows.Add(product, prod.AmountProducts, operation);
                 }
             }

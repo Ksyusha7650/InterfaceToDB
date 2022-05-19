@@ -28,9 +28,6 @@ namespace InterfaceToDB
             this.AmountProducts = amountProducts;
             this.DateOfWriteOff = date; 
         }
-        public string ListMaterial {
-            get { return "Operation: " + DataBase.OperationName(Operation) + " product: " + DataBase.ProductName(Product) + " amount: "+ AmountProducts; }
-        }
     }
     public partial class WriteOffMaterial : Form
     {
@@ -44,11 +41,11 @@ namespace InterfaceToDB
             InitializeComponent();
             tableMaterials = dataMaterials;
             order = ID_Order;
-            writeOffProds = DataBase.GetWriteOffList(order);
+            writeOffProds = GetLists.GetWriteOffList(order);
             foreach (WriteOffProd prod in writeOffProds)
             {
-               string product = DataBase.ProductName(prod.Product);
-               string operation = DataBase.OperationName(prod.Operation);
+               string product = GetString.ProductName(prod.Product);
+               string operation = GetString.OperationName(prod.Operation);
                 tableMaterials.Rows.Add(product, prod.AmountProducts, operation);
             }
         }

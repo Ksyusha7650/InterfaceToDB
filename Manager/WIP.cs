@@ -28,19 +28,38 @@ namespace InterfaceToDB
     public partial class WIP : Form
     {
         public List<WorkInProcess> works;
+        public List<Int32> orders;
         public WIP()
         {
             InitializeComponent();
-            works = DataBase.GetWIPList();
+            works = GetLists.GetWIPList(-1);
+            ShowWIP();
+            orders = GetLists.GetOrdersInWorkInProcess();
+            foreach (int order in orders)
+            {
+                comboBoxOrders.Items.Add(order);
+            }
+        }
+
+        private void ShowWIP()
+        {
+            WIPTable.Rows.Clear();
             foreach (WorkInProcess work in works)
             {
-                WIPTable.Rows.Add(work.Id, work.id_order, work.amount, work.id_prod);
+                string productName = GetString.ProductName(work.id_prod);
+                WIPTable.Rows.Add(work.Id, work.id_order, productName, work.amount);
             }
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBoxOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            works = GetLists.GetWIPList(Int32.Parse(comboBoxOrders.SelectedItem.ToString()));
+            ShowWIP();
         }
     }
 }

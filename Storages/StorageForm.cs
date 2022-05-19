@@ -18,17 +18,17 @@ namespace InterfaceToDB
         public StorageForm()
         {
             InitializeComponent();
-            warehouses = DataBase.GetWarehouses();
+            warehouses = GetLists.GetWarehouses(-1);
             foreach (int id_warehouse in warehouses)
             {
                 comboBoxWh.Items.Add(id_warehouse);
             }
-            products = DataBase.GetProducts(-1);
+            products = GetLists.GetProducts(-1);
             foreach (string product in products)
             {
                 comboBoxProduct.Items.Add(product);
             }
-            storageList = DataBase.GetStorageList(-1, -1);
+            storageList = GetLists.GetStorageList(-1, -1);
             ShowStorages();
         }
 
@@ -37,7 +37,7 @@ namespace InterfaceToDB
             storageTable.Rows.Clear();
             foreach (Storage s in storageList)
             {
-                string productName = DataBase.ProductName(s.id_prod);
+                string productName = GetString.ProductName(s.id_prod);
                 storageTable.Rows.Add(s.id_warehouse, productName, s.amount);
             }
         }
@@ -50,13 +50,13 @@ namespace InterfaceToDB
             else
             {
                 string product = comboBoxProduct.SelectedItem.ToString();
-                id_product = DataBase.GetIdProduct(product);
+                id_product = GetInt.GetIdProduct(product);
             }
             if (comboBoxWh.SelectedIndex == -1)
                 id_warehouse = -1;
             else
                 id_warehouse = Int32.Parse(comboBoxWh.SelectedItem.ToString());
-            storageList = DataBase.GetStorageList(id_warehouse, id_product);
+            storageList = GetLists.GetStorageList(id_warehouse, id_product);
             ShowStorages();
         }
 

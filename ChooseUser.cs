@@ -20,7 +20,6 @@ namespace InterfaceToDB
         public EnterForm()
         {
             InitializeComponent();
-            DataBase.Connect();
         }
 
         private void buttonNext_Click(object sender, EventArgs e)

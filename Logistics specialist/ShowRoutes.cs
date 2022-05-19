@@ -17,7 +17,7 @@ namespace InterfaceToDB
         public ShowRoutes()
         {
             InitializeComponent();
-            routes = DataBase.GetRoutesList();
+            routes = GetLists.GetRoutesList();
             foreach(Route route in routes)
             {
                 tableRoutes.Rows.Add(route.Id, route.duration, route.id_warehouseFrom, route.id_warehouseTo, 

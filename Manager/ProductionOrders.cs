@@ -24,14 +24,5 @@ namespace InterfaceToDB
             this.status = status;
             this.id_warehouse = id_warehouse;
         }
-
-        public string ListProductionOrder
-        {
-            get
-            {
-                return "Id order: " + Id + " date of order: " + date + " product: " + DataBase.ProductName(id_prod)
-                    + " amount: " +  amount + " status: " + status + "warehouse: " + id_warehouse;
-            }
-        }
     }
 }

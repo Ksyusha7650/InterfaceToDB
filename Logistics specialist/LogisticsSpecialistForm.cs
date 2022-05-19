@@ -19,13 +19,13 @@ namespace InterfaceToDB
             InitializeComponent();
             mainForm = form;
             mainForm.Hide();
-            whTo_From = DataBase.GetWarehouses();
+            whTo_From = GetLists.GetWarehouses(0);
             foreach (int i in whTo_From)
             {
                 comboBoxWhFrom.Items.Add(i);
                 comboBoxWhTo.Items.Add(i);
             }
-            whTrans = DataBase.GetWarehousesTransit();
+            whTrans = GetLists.GetWarehouses(1);
             foreach (int i in whTrans)
             {
                 comboBoxWhTrans.Items.Add(i);
@@ -61,7 +61,7 @@ namespace InterfaceToDB
                 int minss = (int)minsInput.Value;
                 int secs = (int)secsInput.Value;
                 TimeSpan time = new TimeSpan(hours, minss, secs);
-                DataBase.InsertRouteToList(warehouseFrom, warehouseTo, warehouseTrans, time);
+                Insert.InsertRouteToList(warehouseFrom, warehouseTo, warehouseTrans, time);
                 MessageBox.Show("Added!");
             }
             catch

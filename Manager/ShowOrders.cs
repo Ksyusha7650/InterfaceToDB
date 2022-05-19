@@ -16,7 +16,7 @@ namespace InterfaceToDB
         public ShowOrders()
         {
             InitializeComponent();
-            productionOrders = DataBase.GetProdOrdersList();
+            productionOrders = GetLists.GetProdOrdersList();
             MakeOrdersList();
         }
 
@@ -50,7 +50,7 @@ namespace InterfaceToDB
         {
                 int index = listOrders.SelectedCells[0].RowIndex;
                 int ID_Order = (int)listOrders.Rows[index].Cells[0].Value;
-                bool check = DataBase.CheckIDToDevelop(ID_Order);
+                bool check = GetBool.CheckIDToDevelop(ID_Order);
                 if (check)
                 {
                     WriteOffMaterial writeOff = new WriteOffMaterial(ID_Order);

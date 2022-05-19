@@ -22,12 +22,12 @@ namespace InterfaceToDB
             InitializeComponent();
             mainForm = form;
             mainForm.Hide();
-            producedProducts = DataBase.GetProducts(1);
+            producedProducts = GetLists.GetProducts(1);
             foreach (string prodProduce in producedProducts)
             {
                 comboBoxProduct.Items.Add(prodProduce);
             }
-            warehouses = DataBase.GetWarehouses();
+            warehouses = GetLists.GetWarehouses(0);
             foreach (int id_warehouse in warehouses)
             {
                 comboBoxWh.Items.Add(id_warehouse);
@@ -60,8 +60,8 @@ namespace InterfaceToDB
                 string product = comboBoxProduct.SelectedItem.ToString();
                 int warehouse = Int32.Parse(comboBoxWh.SelectedItem.ToString());
                 int amount = (int)numericUpDownAmount.Value;
-                int id_product = DataBase.GetIdProduct(product);
-                DataBase.InsertProdOrderToList(id_product, amount, warehouse);
+                int id_product = GetInt.GetIdProduct(product);
+                Insert.InsertProdOrderToList(id_product, amount, warehouse);
                 MessageBox.Show("Added!");
             }
             catch

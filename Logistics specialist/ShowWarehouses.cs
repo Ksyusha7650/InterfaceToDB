@@ -31,7 +31,7 @@ namespace InterfaceToDB
         public ShowWarehouses()
         {
             InitializeComponent();
-            Warehouses = DataBase.GetWarehousesList();
+            Warehouses = GetLists.GetWarehousesList();
             foreach(Warehouse warehouse in Warehouses)
             {
                 tableWarehouses.Rows.Add(warehouse.Id, warehouse.Name, warehouse.IsTransit);
