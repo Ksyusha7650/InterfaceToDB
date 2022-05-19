@@ -48,17 +48,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase.cs" />
-    <Compile Include="ForemanForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ForemanForm.Designer.cs">
-      <DependentUpon>ForemanForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChooseUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChooseUser.Designer.cs">
       <DependentUpon>ChooseUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logistics specialist\LogisticsSpecialistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logistics specialist\LogisticsSpecialistForm.Designer.cs">
+      <DependentUpon>LogisticsSpecialistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logistics specialist\Routes.cs" />
+    <Compile Include="Logistics specialist\ShowRoutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logistics specialist\ShowRoutes.Designer.cs">
+      <DependentUpon>ShowRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logistics specialist\ShowWarehouses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logistics specialist\ShowWarehouses.Designer.cs">
+      <DependentUpon>ShowWarehouses.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\FormAddMaterial.cs">
       <SubType>Form</SubType>
@@ -100,15 +113,27 @@
     <Compile Include="Storages\StorageForm.Designer.cs">
       <DependentUpon>StorageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Storekeeper\StorekeeperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storekeeper\StorekeeperForm.Designer.cs">
+      <DependentUpon>StorekeeperForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stuff.cs" />
-    <EmbeddedResource Include="ForemanForm.resx">
-      <DependentUpon>ForemanForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ChooseUser.en-150.resx">
       <DependentUpon>ChooseUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseUser.resx">
       <DependentUpon>ChooseUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistics specialist\LogisticsSpecialistForm.resx">
+      <DependentUpon>LogisticsSpecialistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistics specialist\ShowRoutes.resx">
+      <DependentUpon>ShowRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistics specialist\ShowWarehouses.resx">
+      <DependentUpon>ShowWarehouses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\FormAddMaterial.resx">
       <DependentUpon>FormAddMaterial.cs</DependentUpon>
@@ -137,6 +162,9 @@
     <EmbeddedResource Include="Storages\StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Storekeeper\StorekeeperForm.resx">
+      <DependentUpon>StorekeeperForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,5 +178,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

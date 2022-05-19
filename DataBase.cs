@@ -114,7 +114,32 @@ namespace InterfaceToDB
             conn.Close();
             return prodOrders;
         }
-
+        public static List<Route> GetRoutesList()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "SELECT * FROM routes";
+            List<Route> routes = new List<Route>();
+            using (var reader = myCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int Id = reader.GetInt32(0);
+                        TimeSpan time = reader.GetTimeSpan(1);
+                        int id_warehouseFrom = reader.GetInt32(2);
+                        int id_warehouseTo = reader.GetInt32(3);
+                        int id_warehouseTransit = reader.GetInt32(4);
+                        Route route = new Route(Id, time, id_warehouseTo, id_warehouseFrom, id_warehouseTransit);
+                        routes.Add(route);
+                    }
+                }
+            }
+            conn.Close();
+            return routes;
+        }
         public static List<WorkInProcess> GetWIPList()
         {
             Connect();
@@ -137,6 +162,29 @@ namespace InterfaceToDB
             }
             conn.Close();
             return workInProcesses;
+        }
+
+        public static List<Warehouse> GetWarehousesList()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "SELECT * FROM warehouse;";
+            var reader = myCommand.ExecuteReader();
+            List<Warehouse> warehouses = new List<Warehouse>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    bool isTrans = reader.GetBoolean(2);
+                    Warehouse warehouse = new Warehouse(id, name, isTrans);
+                    warehouses.Add(warehouse);
+                }
+            }
+            conn.Close();
+            return warehouses;
         }
 
         public static List<Storage> GetStorageList(int par_id_wh, int par_id_prod)
@@ -222,12 +270,18 @@ namespace InterfaceToDB
             return product;
         }
 
-        public static List<String> GetProducts()
+        public static List<String> GetProducts(int isFinish)
         {
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
             myCommand.Connection = conn;
-            myCommand.CommandText = "select ProductName from products";
+            if (isFinish == -1)
+                myCommand.CommandText = "select ProductName from products";
+            else
+            {
+                myCommand.Parameters.AddWithValue("@isFinish", isFinish);
+                myCommand.CommandText = "select ProductName from products where IsFinish = @isFinish";
+            }
             var reader = myCommand.ExecuteReader();
             List<String> products = new List<String>();
             if (reader.HasRows)
@@ -246,7 +300,7 @@ namespace InterfaceToDB
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
             myCommand.Connection = conn;
-            myCommand.CommandText = "select Id_Warehouse from warehouse";
+            myCommand.CommandText = "select Id_Warehouse from warehouse where IsTransit = 0";
             var reader = myCommand.ExecuteReader();
             List<int> warehouses = new List<int>();
             if (reader.HasRows)
@@ -259,7 +313,26 @@ namespace InterfaceToDB
             conn.Close();
             return warehouses;
         }
-       
+
+        public static List<Int32> GetWarehousesTransit()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "select Id_Warehouse from warehouse where IsTransit = 1";
+            var reader = myCommand.ExecuteReader();
+            List<int> warehouses = new List<int>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    warehouses.Add(reader.GetInt32(0));
+                }
+            }
+            conn.Close();
+            return warehouses;
+        }
+
 
         public static List<String> GetOperations()
         {
@@ -302,6 +375,20 @@ namespace InterfaceToDB
             conn.Close();
         }
 
+        public static void InsertRouteToList(int id_warehouseFrom, int id_warehouseTo, int id_warehouseTrans, TimeSpan dur)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.Parameters.AddWithValue("@wh_to", id_warehouseTo);
+            myCommand.Parameters.AddWithValue("@wh_from", id_warehouseFrom);
+            myCommand.Parameters.AddWithValue("@wh_trans", id_warehouseTrans);
+            myCommand.Parameters.AddWithValue("@duration", dur);
+            myCommand.CommandText = "insert into routes set Duration = @duration, " +
+                "ID_WarehouseReciever = @wh_to, ID_WarehouseSender = @wh_from, ID_WarehouseTransit = @wh_trans;";
+            myCommand.ExecuteNonQuery();
+            conn.Close();
+        }
         public static bool CheckIDToDevelop(int idProdOrder)
         {
             Connect();

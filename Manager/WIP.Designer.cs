@@ -37,6 +37,9 @@
             this.ID_Order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.WIPTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +49,7 @@
             this.buttonOK.Font = new System.Drawing.Font("Noto Sans", 7.8F, System.Drawing.FontStyle.Bold);
             this.buttonOK.ForeColor = System.Drawing.Color.White;
             this.buttonOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonOK.Location = new System.Drawing.Point(324, 417);
+            this.buttonOK.Location = new System.Drawing.Point(369, 520);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(83, 39);
             this.buttonOK.TabIndex = 9;
@@ -59,7 +62,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Noto Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(30)))), ((int)(((byte)(66)))));
-            this.label2.Location = new System.Drawing.Point(275, 27);
+            this.label2.Location = new System.Drawing.Point(318, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 27);
             this.label2.TabIndex = 8;
@@ -95,7 +98,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.WIPTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.WIPTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(208)))));
-            this.WIPTable.Location = new System.Drawing.Point(37, 70);
+            this.WIPTable.Location = new System.Drawing.Point(82, 173);
             this.WIPTable.Name = "WIPTable";
             this.WIPTable.ReadOnly = true;
             this.WIPTable.RowHeadersVisible = false;
@@ -145,12 +148,42 @@
             this.Amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Amount.Width = 175;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(152, 96);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(103, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 18);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Order";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(401, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 34);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Output products";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // WIP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(684, 468);
+            this.ClientSize = new System.Drawing.Size(772, 583);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.WIPTable);
@@ -174,5 +207,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_Order;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

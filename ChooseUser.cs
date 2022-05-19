@@ -34,7 +34,12 @@ namespace InterfaceToDB
                         break;
                     }
                     case USERS.LogisticsSpecialist:
-                    break;
+                    {
+                        LogisticsSpecialistForm form = new LogisticsSpecialistForm(this);
+                        form.ShowDialog();
+                        break;
+                    }
+                   
                     case USERS.Manager:
                     {
                         

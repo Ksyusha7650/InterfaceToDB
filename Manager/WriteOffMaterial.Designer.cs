@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.showRestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,21 +44,24 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            this.menuStrip1.Font = new System.Drawing.Font("Noto Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showRestToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(761, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(761, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // showRestToolStripMenuItem
             // 
-            this.showRestToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.showRestToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.showRestToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.showRestToolStripMenuItem.Name = "showRestToolStripMenuItem";
-            this.showRestToolStripMenuItem.Size = new System.Drawing.Size(102, 27);
+            this.showRestToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.showRestToolStripMenuItem.Text = "Show rest";
             this.showRestToolStripMenuItem.Click += new System.EventHandler(this.showRestToolStripMenuItem_Click);
             // 
@@ -65,6 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Noto Sans", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
             this.label1.Location = new System.Drawing.Point(25, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 24);
@@ -73,27 +78,40 @@
             // 
             // buttonAddMaterial
             // 
+            this.buttonAddMaterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            this.buttonAddMaterial.ForeColor = System.Drawing.Color.White;
             this.buttonAddMaterial.Location = new System.Drawing.Point(428, 415);
             this.buttonAddMaterial.Name = "buttonAddMaterial";
             this.buttonAddMaterial.Size = new System.Drawing.Size(149, 36);
             this.buttonAddMaterial.TabIndex = 4;
             this.buttonAddMaterial.Text = "Add material";
-            this.buttonAddMaterial.UseVisualStyleBackColor = true;
+            this.buttonAddMaterial.UseVisualStyleBackColor = false;
             this.buttonAddMaterial.Click += new System.EventHandler(this.buttonAddMaterial_Click);
             // 
             // buttonWriteOff
             // 
+            this.buttonWriteOff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            this.buttonWriteOff.ForeColor = System.Drawing.Color.White;
             this.buttonWriteOff.Location = new System.Drawing.Point(585, 415);
             this.buttonWriteOff.Name = "buttonWriteOff";
             this.buttonWriteOff.Size = new System.Drawing.Size(149, 36);
             this.buttonWriteOff.TabIndex = 5;
             this.buttonWriteOff.Text = "Write-Off";
-            this.buttonWriteOff.UseVisualStyleBackColor = true;
+            this.buttonWriteOff.UseVisualStyleBackColor = false;
             // 
             // dataMaterials
             // 
             this.dataMaterials.AllowUserToAddRows = false;
             this.dataMaterials.AllowUserToDeleteRows = false;
+            this.dataMaterials.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataMaterials.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataMaterials.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product,

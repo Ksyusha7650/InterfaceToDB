@@ -20,7 +20,7 @@ namespace InterfaceToDB
             InitializeComponent();
             materials = list;
             formMat = form;
-            materialNames = DataBase.GetProducts();
+            materialNames = DataBase.GetProducts(0);
             foreach(string materialName in materialNames)
             {
                 comboBoxProduct.Items.Add(materialName);

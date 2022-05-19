@@ -23,7 +23,7 @@ namespace InterfaceToDB
             {
                 comboBoxWh.Items.Add(id_warehouse);
             }
-            products = DataBase.GetProducts();
+            products = DataBase.GetProducts(-1);
             foreach (string product in products)
             {
                 comboBoxProduct.Items.Add(product);

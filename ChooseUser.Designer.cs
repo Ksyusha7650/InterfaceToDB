@@ -37,7 +37,7 @@
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(119)))), ((int)(((byte)(140)))));
             this.label1.Name = "label1";
             // 
             // comboBoxUsers
@@ -58,7 +58,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            this.buttonNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(119)))), ((int)(((byte)(140)))));
             this.buttonNext.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.buttonNext, "buttonNext");
             this.buttonNext.ForeColor = System.Drawing.Color.White;

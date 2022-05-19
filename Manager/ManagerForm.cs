@@ -22,7 +22,7 @@ namespace InterfaceToDB
             InitializeComponent();
             mainForm = form;
             mainForm.Hide();
-            producedProducts = DataBase.GetProducts();
+            producedProducts = DataBase.GetProducts(1);
             foreach (string prodProduce in producedProducts)
             {
                 comboBoxProduct.Items.Add(prodProduce);

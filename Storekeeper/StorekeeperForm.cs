@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InterfaceToDB
+namespace InterfaceToDB.Storekeeper
 {
-    public partial class ForemanForm : Form
+    public partial class StorekeeperForm : Form
     {
-        public ForemanForm()
+        public StorekeeperForm()
         {
             InitializeComponent();
         }
