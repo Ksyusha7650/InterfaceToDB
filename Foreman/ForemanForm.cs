@@ -54,7 +54,6 @@ namespace InterfaceToDB
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            //TODO: проверка на пустые значения
             try
             {
                 string product = comboBoxProduct.SelectedItem.ToString();

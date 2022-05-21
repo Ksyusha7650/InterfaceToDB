@@ -43,8 +43,8 @@ namespace InterfaceToDB
                    
                     case USERS.Manager:
                     {
-                        
-
+                        ManagerForm form = new ManagerForm(this);
+                        form.ShowDialog();
                         break;
                     }
             }

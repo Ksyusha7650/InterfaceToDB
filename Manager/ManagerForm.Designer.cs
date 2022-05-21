@@ -50,7 +50,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxProduct = new System.Windows.Forms.ComboBox();
+            this.comboBoxRoutes = new System.Windows.Forms.ComboBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.ID_prod_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -139,6 +139,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(57, 28);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -160,8 +161,8 @@
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.Layout.Controls.Add(this.tableLayoutPanel1, 0, 2);
             this.Layout.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.Layout.Controls.Add(this.label1, 0, 0);
             this.Layout.Controls.Add(this.buttonOK, 0, 3);
+            this.Layout.Controls.Add(this.label1, 0, 0);
             this.Layout.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.Layout.Location = new System.Drawing.Point(0, 55);
             this.Layout.Name = "Layout";
@@ -299,12 +300,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.12994F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.87006F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.9883F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.0117F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 323F));
             this.tableLayoutPanel2.Controls.Add(this.buttonCreate, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxProduct, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxRoutes, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 103);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -318,7 +319,7 @@
             this.label2.Font = new System.Drawing.Font("Noto Sans", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(280, 0);
+            this.label2.Location = new System.Drawing.Point(345, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 42);
@@ -326,19 +327,19 @@
             this.label2.Text = "Route:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // comboBoxProduct
+            // comboBoxRoutes
             // 
-            this.comboBoxProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxProduct.Font = new System.Drawing.Font("Noto Sans", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxProduct.ForeColor = System.Drawing.Color.Black;
-            this.comboBoxProduct.FormattingEnabled = true;
-            this.comboBoxProduct.Location = new System.Drawing.Point(406, 2);
-            this.comboBoxProduct.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxProduct.Name = "comboBoxProduct";
-            this.comboBoxProduct.Size = new System.Drawing.Size(173, 40);
-            this.comboBoxProduct.Sorted = true;
-            this.comboBoxProduct.TabIndex = 14;
+            this.comboBoxRoutes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxRoutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRoutes.Font = new System.Drawing.Font("Noto Sans", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxRoutes.ForeColor = System.Drawing.Color.Black;
+            this.comboBoxRoutes.FormattingEnabled = true;
+            this.comboBoxRoutes.Location = new System.Drawing.Point(471, 2);
+            this.comboBoxRoutes.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxRoutes.Name = "comboBoxRoutes";
+            this.comboBoxRoutes.Size = new System.Drawing.Size(173, 40);
+            this.comboBoxRoutes.Sorted = true;
+            this.comboBoxRoutes.TabIndex = 14;
             // 
             // buttonOK
             // 
@@ -359,10 +360,10 @@
             this.buttonOK.TabIndex = 17;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonCreate.BackColor = System.Drawing.Color.White;
             this.buttonCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCreate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
@@ -372,7 +373,7 @@
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Noto Sans", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
-            this.buttonCreate.Location = new System.Drawing.Point(883, 17);
+            this.buttonCreate.Location = new System.Drawing.Point(771, 2);
             this.buttonCreate.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(116, 44);
@@ -476,7 +477,7 @@
         private System.Windows.Forms.TableLayoutPanel Layout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxProduct;
+        private System.Windows.Forms.ComboBox comboBoxRoutes;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.DataGridView tableOrders;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
