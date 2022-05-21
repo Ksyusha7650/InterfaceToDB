@@ -107,9 +107,35 @@ namespace InterfaceToDB
             conn.Close();
             return routes;
         }
-      
 
-        
+        public static List<OutputProd> GetOutputProdList()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "SELECT * FROM outputproducts";
+            List<OutputProd> outputProdList = new List<OutputProd>();
+            using (var reader = myCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int Id = reader.GetInt32(0);
+                        int amount = reader.GetInt32(1);
+                        DateTime time = reader.GetDateTime(2);
+                        int id_warehouse = reader.GetInt32(3);
+                        int id_order = reader.GetInt32(4);
+                        int id_product = reader.GetInt32(5);
+                        OutputProd outputProd = new OutputProd(Id, amount, time, id_warehouse, id_order, id_product);
+                        outputProdList.Add(outputProd);
+                    }
+                }
+            }
+            conn.Close();
+            return outputProdList;
+        }
+
 
         public static List<Storage> GetStorageList(int par_id_wh, int par_id_prod)
         {
@@ -237,7 +263,8 @@ namespace InterfaceToDB
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
             myCommand.Connection = conn;
-            myCommand.CommandText = "select distinct ID_Order from workinprocess;";
+            myCommand.CommandText = "select distinct w.ID_Order from workinprocess w inner join productionorder p" +
+                " on w.ID_Order = p.ID_Order where p.`Status` = 'D';";
             var reader = myCommand.ExecuteReader();
             List<int> warehouses = new List<int>();
             if (reader.HasRows)

@@ -61,7 +61,7 @@ namespace InterfaceToDB
                 int minss = (int)minsInput.Value;
                 int secs = (int)secsInput.Value;
                 TimeSpan time = new TimeSpan(hours, minss, secs);
-                Insert.InsertRouteToList(warehouseFrom, warehouseTo, warehouseTrans, time);
+                Procedures.InsertRouteToList(warehouseFrom, warehouseTo, warehouseTrans, time);
                 MessageBox.Show("Added!");
             }
             catch

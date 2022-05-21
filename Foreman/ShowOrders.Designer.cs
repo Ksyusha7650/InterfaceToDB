@@ -33,9 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listOrders = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ID_prod_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_Order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +40,9 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_Warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +79,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.listOrders.DefaultCellStyle = dataGridViewCellStyle3;
             this.listOrders.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(208)))));
-            this.listOrders.Location = new System.Drawing.Point(35, 51);
+            this.listOrders.Location = new System.Drawing.Point(23, 58);
             this.listOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listOrders.Name = "listOrders";
             this.listOrders.ReadOnly = true;
@@ -97,41 +97,6 @@
             this.listOrders.Size = new System.Drawing.Size(739, 343);
             this.listOrders.TabIndex = 0;
             this.listOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listOrders_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Noto Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(30)))), ((int)(((byte)(66)))));
-            this.label1.Location = new System.Drawing.Point(295, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 27);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Production orders";
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(30)))), ((int)(((byte)(66)))));
-            this.buttonOK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOK.Font = new System.Drawing.Font("Noto Sans", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.ForeColor = System.Drawing.Color.White;
-            this.buttonOK.Location = new System.Drawing.Point(351, 415);
-            this.buttonOK.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(97, 37);
-            this.buttonOK.TabIndex = 18;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.UseVisualStyleBackColor = false;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "Action";
-            this.dataGridViewButtonColumn1.MinimumWidth = 6;
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Width = 125;
             // 
             // ID_prod_order
             // 
@@ -203,6 +168,41 @@
             this.Action.ReadOnly = true;
             this.Action.Width = 125;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Noto Sans", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
+            this.label1.Location = new System.Drawing.Point(257, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(270, 38);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Production orders";
+            // 
+            // buttonOK
+            // 
+            this.buttonOK.BackColor = System.Drawing.Color.White;
+            this.buttonOK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOK.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
+            this.buttonOK.Location = new System.Drawing.Point(371, 418);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(89, 34);
+            this.buttonOK.TabIndex = 18;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "Action";
+            this.dataGridViewButtonColumn1.MinimumWidth = 6;
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.Width = 125;
+            // 
             // ShowOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -213,7 +213,7 @@
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.listOrders);
             this.Font = new System.Drawing.Font("Noto Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ShowOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

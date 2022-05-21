@@ -30,6 +30,8 @@ namespace InterfaceToDB
             {
                 case USERS.Foreman:
                     {
+                        ForemanForm form = new ForemanForm(this);
+                        form.ShowDialog();
                         break;
                     }
                     case USERS.LogisticsSpecialist:
@@ -42,8 +44,6 @@ namespace InterfaceToDB
                     case USERS.Manager:
                     {
                         
-                        ManagerForm form = new ManagerForm(this);
-                        form.ShowDialog();
 
                         break;
                     }

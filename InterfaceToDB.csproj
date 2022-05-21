@@ -50,7 +50,7 @@
     <Compile Include="Database\GetBool.cs" />
     <Compile Include="Database\GetString.cs" />
     <Compile Include="Database\GetInt.cs" />
-    <Compile Include="Database\Insert.cs" />
+    <Compile Include="Database\Procedures.cs" />
     <Compile Include="Database\GetLists.cs" />
     <Compile Include="ChooseUser.cs">
       <SubType>Form</SubType>
@@ -77,36 +77,54 @@
     <Compile Include="Logistics specialist\ShowWarehouses.Designer.cs">
       <DependentUpon>ShowWarehouses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\FormAddMaterial.cs">
+    <Compile Include="Foreman\OutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\FormAddMaterial.Designer.cs">
+    <Compile Include="Foreman\OutputForm.Designer.cs">
+      <DependentUpon>OutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Foreman\FormAddMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Foreman\FormAddMaterial.Designer.cs">
       <DependentUpon>FormAddMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Foreman\ForemanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Foreman\ForemanForm.Designer.cs">
+      <DependentUpon>ForemanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Foreman\ProductionOrders.cs" />
+    <Compile Include="Foreman\ShowOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Foreman\ShowOrders.Designer.cs">
+      <DependentUpon>ShowOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Foreman\WIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Foreman\WIP.Designer.cs">
+      <DependentUpon>WIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Foreman\WriteOffMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Foreman\WriteOffMaterial.Designer.cs">
+      <DependentUpon>WriteOffMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\AddShipmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\AddShipmentForm.Designer.cs">
+      <DependentUpon>AddShipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\ManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manager\ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\ProductionOrders.cs" />
-    <Compile Include="Manager\ShowOrders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\ShowOrders.Designer.cs">
-      <DependentUpon>ShowOrders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\WIP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\WIP.Designer.cs">
-      <DependentUpon>WIP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\WriteOffMaterial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\WriteOffMaterial.Designer.cs">
-      <DependentUpon>WriteOffMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,20 +157,29 @@
     <EmbeddedResource Include="Logistics specialist\ShowWarehouses.resx">
       <DependentUpon>ShowWarehouses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\FormAddMaterial.resx">
+    <EmbeddedResource Include="Foreman\OutputForm.resx">
+      <DependentUpon>OutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Foreman\FormAddMaterial.resx">
       <DependentUpon>FormAddMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Foreman\ForemanForm.resx">
+      <DependentUpon>ForemanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Foreman\ShowOrders.resx">
+      <DependentUpon>ShowOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Foreman\WIP.resx">
+      <DependentUpon>WIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Foreman\WriteOffMaterial.resx">
+      <DependentUpon>WriteOffMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\AddShipmentForm.resx">
+      <DependentUpon>AddShipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\ShowOrders.resx">
-      <DependentUpon>ShowOrders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\WIP.resx">
-      <DependentUpon>WIP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\WriteOffMaterial.resx">
-      <DependentUpon>WriteOffMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

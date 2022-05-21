@@ -35,7 +35,6 @@ namespace InterfaceToDB
         public DataGridView tableMaterials;
         public int order;
         
-        
         public WriteOffMaterial(int ID_Order)
         {
             InitializeComponent();
@@ -60,6 +59,16 @@ namespace InterfaceToDB
         {
             FormAddMaterial addMaterial = new FormAddMaterial(writeOffProds, this);
             addMaterial.ShowDialog();
+        }
+
+        private void buttonWriteOff_Click(object sender, EventArgs e)
+        {
+            foreach(WriteOffProd prod in writeOffProds)
+            {
+                Procedures.DoWriteOff(prod.Id);
+            }
+            
+            this.Close();
         }
     }
 }

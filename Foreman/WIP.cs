@@ -61,5 +61,18 @@ namespace InterfaceToDB
             works = GetLists.GetWIPList(Int32.Parse(comboBoxOrders.SelectedItem.ToString()));
             ShowWIP();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonOutput_Click(object sender, EventArgs e)
+        {
+            int id_order = Convert.ToInt32(comboBoxOrders.SelectedItem.ToString());
+            Procedures.InsertOutputOrderToList(id_order);
+            OutputForm outputForm = new OutputForm();
+            outputForm.ShowDialog();
+        }
     }
 }

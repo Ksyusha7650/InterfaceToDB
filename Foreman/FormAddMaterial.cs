@@ -15,6 +15,7 @@ namespace InterfaceToDB
         List<WriteOffProd> materials;
         WriteOffMaterial formMat;
         List<string> materialNames, prodOperations;
+        List<Int32> warehouses;
         public FormAddMaterial(List<WriteOffProd> list, WriteOffMaterial form)
         {
             InitializeComponent();
@@ -30,20 +31,26 @@ namespace InterfaceToDB
             {
                 comboBoxOperation.Items.Add(operationName);
             }
+            warehouses = GetLists.GetWarehouses(0);
+            foreach(int warehouse in warehouses)
+            {
+                comboBoxWh.Items.Add(warehouse);
+            }
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if ((comboBoxProduct.SelectedIndex != -1) && (comboBoxOperation.SelectedIndex != -1)
-                && (numericUpDownAmount.Value > 0))
+            if ((comboBoxProduct.SelectedIndex != -1) && (comboBoxOperation.SelectedIndex != -1) 
+                && (comboBoxWh.SelectedIndex != -1) && (numericUpDownAmount.Value > 0))
             {
                 string operation = comboBoxOperation.SelectedItem.ToString();
                 string product = comboBoxProduct.SelectedItem.ToString();
+                int id_warehouse = Int32.Parse(comboBoxWh.SelectedItem.ToString());
                 int id_operation = GetInt.GetIdOperation(operation);
                 int id_product = GetInt.GetIdProduct(product);
                 int amount = (int)numericUpDownAmount.Value;
                 int id_order = formMat.order;
-                Insert.InsertMaterialsToList(id_order, id_operation, id_product, amount);
+                Procedures.InsertMaterialsToList(id_order, id_operation, id_product, amount, id_warehouse);
                 formMat.tableMaterials.Rows.Clear();
                 materials = GetLists.GetWriteOffList(id_order);
                 foreach (WriteOffProd prod in materials)

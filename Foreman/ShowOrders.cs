@@ -16,20 +16,23 @@ namespace InterfaceToDB
         public ShowOrders()
         {
             InitializeComponent();
-            productionOrders = GetLists.GetProdOrdersList();
+           
             MakeOrdersList();
         }
 
         private void MakeOrdersList()
         {
+            productionOrders = GetLists.GetProdOrdersList();
+            listOrders.Rows.Clear();
             DataGridViewButtonColumn col = (DataGridViewButtonColumn)listOrders.Columns[6];
             col.Text = "Write-off";
             col.UseColumnTextForButtonValue = true;
             foreach (ProductionOrders prod in productionOrders)
             {
                 DataGridViewButtonCell buttonCell = new DataGridViewButtonCell();
-                listOrders.Rows.Add(prod.Id, prod.date, prod.amount, prod.id_prod, prod.status
-                   , prod.id_warehouse, buttonCell);
+                string prodName = GetString.ProductName(prod.id_prod);
+                listOrders.Rows.Add(prod.Id, prod.date, prod.amount, prodName, prod.status
+                   ,prod.id_warehouse, buttonCell);
             }
             /*for(int index = 1; index < listButtons.Rows.Count; index++)
             {
@@ -55,6 +58,8 @@ namespace InterfaceToDB
                 {
                     WriteOffMaterial writeOff = new WriteOffMaterial(ID_Order);
                     writeOff.ShowDialog();
+                    MakeOrdersList();
+                MessageBox.Show("Success!");
                 }
         }
     }

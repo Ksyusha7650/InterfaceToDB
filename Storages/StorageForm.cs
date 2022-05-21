@@ -60,16 +60,15 @@ namespace InterfaceToDB
             ShowStorages();
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void buttonReset_Click(object sender, EventArgs e)
         {
             comboBoxWh.SelectedIndex = -1;
             comboBoxProduct.SelectedIndex = -1;
         }
 
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

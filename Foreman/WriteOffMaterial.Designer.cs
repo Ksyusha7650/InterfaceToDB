@@ -44,7 +44,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
             this.menuStrip1.Font = new System.Drawing.Font("Noto Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -52,34 +52,40 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(761, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(761, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // showRestToolStripMenuItem
             // 
-            this.showRestToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.showRestToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.showRestToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.showRestToolStripMenuItem.Name = "showRestToolStripMenuItem";
-            this.showRestToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.showRestToolStripMenuItem.Size = new System.Drawing.Size(107, 27);
             this.showRestToolStripMenuItem.Text = "Show rest";
             this.showRestToolStripMenuItem.Click += new System.EventHandler(this.showRestToolStripMenuItem_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Noto Sans", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            this.label1.Location = new System.Drawing.Point(25, 60);
+            this.label1.Font = new System.Drawing.Font("Noto Sans", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
+            this.label1.Location = new System.Drawing.Point(304, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 24);
+            this.label1.Size = new System.Drawing.Size(176, 45);
             this.label1.TabIndex = 2;
             this.label1.Text = "Write-off:";
             // 
             // buttonAddMaterial
             // 
-            this.buttonAddMaterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            this.buttonAddMaterial.ForeColor = System.Drawing.Color.White;
+            this.buttonAddMaterial.BackColor = System.Drawing.Color.White;
+            this.buttonAddMaterial.FlatAppearance.BorderSize = 2;
+            this.buttonAddMaterial.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonAddMaterial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonAddMaterial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonAddMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddMaterial.Font = new System.Drawing.Font("Noto Sans", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddMaterial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(201)))), ((int)(((byte)(227)))));
             this.buttonAddMaterial.Location = new System.Drawing.Point(428, 415);
             this.buttonAddMaterial.Name = "buttonAddMaterial";
             this.buttonAddMaterial.Size = new System.Drawing.Size(149, 36);
@@ -90,14 +96,21 @@
             // 
             // buttonWriteOff
             // 
-            this.buttonWriteOff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            this.buttonWriteOff.ForeColor = System.Drawing.Color.White;
+            this.buttonWriteOff.BackColor = System.Drawing.Color.White;
+            this.buttonWriteOff.FlatAppearance.BorderSize = 2;
+            this.buttonWriteOff.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonWriteOff.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonWriteOff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.buttonWriteOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWriteOff.Font = new System.Drawing.Font("Noto Sans", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonWriteOff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(194)))), ((int)(((byte)(235)))));
             this.buttonWriteOff.Location = new System.Drawing.Point(585, 415);
             this.buttonWriteOff.Name = "buttonWriteOff";
             this.buttonWriteOff.Size = new System.Drawing.Size(149, 36);
             this.buttonWriteOff.TabIndex = 5;
             this.buttonWriteOff.Text = "Write-Off";
             this.buttonWriteOff.UseVisualStyleBackColor = false;
+            this.buttonWriteOff.Click += new System.EventHandler(this.buttonWriteOff_Click);
             // 
             // dataMaterials
             // 
@@ -162,9 +175,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WriteOffMaterial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Write-off materials";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

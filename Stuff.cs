@@ -34,12 +34,12 @@ namespace InterfaceToDB
         private Color selected()
         {
             Color col = new Color();
-            return col = Color.FromArgb(66, 82, 110);
+            return col = Color.FromArgb(153, 153, 153);
         }
         private Color bgItems()
         {
             Color col = new Color();
-            return col = Color.FromArgb(9, 30, 66);
+            return col = Color.FromArgb(51, 49, 44);
         }
         public override Color MenuItemSelected
         {
