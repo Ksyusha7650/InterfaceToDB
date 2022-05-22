@@ -118,6 +118,28 @@ namespace InterfaceToDB
             myCommand.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static void InsertOrderToList(int par_wh_to, int par_wh_from)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "AddTransferOrder";
+            myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("@wh_to", par_wh_to);
+            myCommand.Parameters.AddWithValue("@wh_from", par_wh_from);
+            try
+            {
+                myCommand.ExecuteNonQuery();
+                MessageBox.Show("Success!");
+            }
+            catch
+            {
+                MessageBox.Show("This route doesn't exists!");
+            }
+            conn.Close();
+        }
+
         #endregion
     }
 }

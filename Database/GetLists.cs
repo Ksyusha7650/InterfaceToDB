@@ -321,5 +321,85 @@ namespace InterfaceToDB
             conn.Close();
             return operations;
         }
+        #region Transfer Order
+        public static List<TransferOrder> GetTransferOrdersList()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "select * from transferorder;";
+            var reader = myCommand.ExecuteReader();
+            List<TransferOrder> orders = new List<TransferOrder>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int route = reader.GetInt32(1);
+                    string status = reader.GetString(2);
+                    DateTime dateCreated = reader.GetDateTime(3);
+                    DateTime dateShipment = DateTime.MinValue;
+                    DateTime dateRecieving = DateTime.MinValue;
+                    if (!reader.IsDBNull(4))
+                    dateShipment = reader.GetDateTime(4);
+                    if (!reader.IsDBNull(5))
+                    dateRecieving = reader.GetDateTime(5);
+                    TransferOrder transferOrder = new TransferOrder(id, route, status, dateCreated,
+                        dateShipment, dateRecieving);
+                    orders.Add(transferOrder);
+                }
+            }
+            conn.Close();
+            return orders;
+        }
+
+        public static List<ShippingProducts> GetShippingProductsList(int id_transferorder)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.Parameters.AddWithValue("@id_order", id_transferorder);
+            myCommand.CommandText = "select * from shippingproducts where ID_TransferOrder = @id_order;";
+            var reader = myCommand.ExecuteReader();
+            List<ShippingProducts> shippingProducts = new List<ShippingProducts>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int amount = reader.GetInt32(1);
+                    int id_prod = reader.GetInt32(2);
+                    int id_order = reader.GetInt32(3);
+                    ShippingProducts shippingProduct = new ShippingProducts(id, id_prod, amount, id_order);
+                    shippingProducts.Add(shippingProduct);
+                }
+            }
+            conn.Close();
+            return shippingProducts;
+        }
+        public static List<String> GetProductsFromWh(int id_order)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.Parameters.AddWithValue("@id_order", id_order);
+            myCommand.CommandText = "select distinct productName from products p " +
+                "inner join `storage` s on p.ID_Product = s.ID_Product where s.ID_Warehouse = " +
+                "(select distinct ID_WarehouseSender from routes r inner join transferorder t on r.ID_route = " +
+                "t.ID_route where t.ID_TransferOrder = @id_order)  and isFinish = 1; ";
+            var reader = myCommand.ExecuteReader();
+            List<String> products = new List<String>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    products.Add(reader.GetString(0));
+                }
+            }
+            conn.Close();
+            return products;
+        }
+
+        #endregion
     }
 }

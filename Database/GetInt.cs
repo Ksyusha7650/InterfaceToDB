@@ -60,5 +60,28 @@ namespace InterfaceToDB
             conn.Clone();
             return product;
         }
+
+        public static Int32 GetAmountProduct(int id_prod, int id_order)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.Parameters.AddWithValue("@id_prod", id_prod);
+            myCommand.Parameters.AddWithValue("@id_order", id_order);
+            myCommand.CommandText = "select AmountProducts from `storage` s " +
+                "where s.ID_Warehouse = (select distinct ID_WarehouseSender from routes r " +
+                "inner join transferorder t on r.ID_route = t.ID_route where t.ID_TransferOrder = @id_order) " +
+                "and s.ID_Product = @id_prod; ";
+            int product = 0;
+            using (var reader = myCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    product = reader.GetInt32(0);
+                }
+            }
+            conn.Clone();
+            return product;
+        }
     }
 }
