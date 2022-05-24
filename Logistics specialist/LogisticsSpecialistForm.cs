@@ -62,11 +62,11 @@ namespace InterfaceToDB
                 int secs = (int)secsInput.Value;
                 TimeSpan time = new TimeSpan(hours, minss, secs);
                 Procedures.InsertRouteToList(warehouseFrom, warehouseTo, warehouseTrans, time);
-                MessageBox.Show("Added!");
             }
             catch
             {
-                MessageBox.Show("Input value!");
+                MessageForm messageForm = new MessageForm("Input value!");
+                messageForm.ShowDialog();
             }
 
         }

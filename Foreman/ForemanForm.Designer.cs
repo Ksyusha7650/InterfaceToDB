@@ -43,11 +43,11 @@
             this.comboBoxWh = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Layout = new System.Windows.Forms.TableLayoutPanel();
+            this.Layout2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmount)).BeginInit();
-            this.Layout.SuspendLayout();
+            this.Layout2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -230,21 +230,21 @@
             // 
             // Layout
             // 
-            this.Layout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Layout.ColumnCount = 1;
-            this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.Layout.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.Layout.Controls.Add(this.buttonOK, 0, 2);
-            this.Layout.Controls.Add(this.label1, 0, 0);
-            this.Layout.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.Layout.Location = new System.Drawing.Point(0, 124);
-            this.Layout.Name = "Layout";
-            this.Layout.RowCount = 3;
-            this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.0597F));
-            this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.9403F));
-            this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 146F));
-            this.Layout.Size = new System.Drawing.Size(1065, 549);
-            this.Layout.TabIndex = 18;
+            this.Layout2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Layout2.ColumnCount = 1;
+            this.Layout2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.Layout2.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.Layout2.Controls.Add(this.buttonOK, 0, 2);
+            this.Layout2.Controls.Add(this.label1, 0, 0);
+            this.Layout2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.Layout2.Location = new System.Drawing.Point(0, 124);
+            this.Layout2.Name = "Layout";
+            this.Layout2.RowCount = 3;
+            this.Layout2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.0597F));
+            this.Layout2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.9403F));
+            this.Layout2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 146F));
+            this.Layout2.Size = new System.Drawing.Size(1065, 549);
+            this.Layout2.TabIndex = 18;
             // 
             // tableLayoutPanel2
             // 
@@ -275,7 +275,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1077, 718);
-            this.Controls.Add(this.Layout);
+            this.Controls.Add(this.Layout2);
             this.Controls.Add(this.menu);
             this.Font = new System.Drawing.Font("Noto Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -288,7 +288,7 @@
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmount)).EndInit();
-            this.Layout.ResumeLayout(false);
+            this.Layout2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,7 +311,7 @@
         private System.Windows.Forms.ToolStripMenuItem showRestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showRestToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem shoToolStripMenuItem;
-        private System.Windows.Forms.TableLayoutPanel Layout;
+        private System.Windows.Forms.TableLayoutPanel Layout2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

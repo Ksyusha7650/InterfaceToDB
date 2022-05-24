@@ -100,5 +100,18 @@ namespace InterfaceToDB
             ShowRoutes showRoutes = new ShowRoutes();
             showRoutes.ShowDialog();
         }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            MessageWithQuestion message = new MessageWithQuestion();
+            message.ShowDialog();
+            if (MessageWithQuestion.toDelete)
+            {
+                int index = tableOrders.SelectedCells[0].RowIndex;
+                int Id = (int)tableOrders.Rows[index].Cells[0].Value;
+                Procedures.DeleteOrderFromList(Id);
+                ShowList();
+            }
+        }
     }
 }

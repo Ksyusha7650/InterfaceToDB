@@ -47,6 +47,7 @@ namespace InterfaceToDB
 
         public static void InsertRouteToList(int id_warehouseFrom, int id_warehouseTo, int id_warehouseTrans, TimeSpan dur)
         {
+
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
             myCommand.Connection = conn;
@@ -54,9 +55,19 @@ namespace InterfaceToDB
             myCommand.Parameters.AddWithValue("@wh_from", id_warehouseFrom);
             myCommand.Parameters.AddWithValue("@wh_trans", id_warehouseTrans);
             myCommand.Parameters.AddWithValue("@duration", dur);
-            myCommand.CommandText = "insert into routes set Duration = @duration, " +
-                "ID_WarehouseReciever = @wh_to, ID_WarehouseSender = @wh_from, ID_WarehouseTransit = @wh_trans;";
-            myCommand.ExecuteNonQuery();
+            myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            myCommand.CommandText = "CreateRoute";
+            try
+            {
+                myCommand.ExecuteNonQuery();
+                MessageForm messageForm = new MessageForm("Added!");
+                messageForm.ShowDialog();
+            }
+            catch
+            {
+                MessageForm messageForm = new MessageForm("This route has already existed!");
+                messageForm.ShowDialog();
+            }
             conn.Close();
         }
 
@@ -137,6 +148,39 @@ namespace InterfaceToDB
             {
                 MessageBox.Show("This route doesn't exists!");
             }
+            conn.Close();
+        }
+
+        public static void DeleteOrderFromList(int par_id_order)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "DeleteOrder";
+            myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("@id_order", par_id_order);
+            try
+            {
+                myCommand.ExecuteNonQuery();
+                MessageBox.Show("Success!");
+            }
+            catch
+            {
+                MessageBox.Show("This order has already been in work!");
+            }
+            conn.Close();
+        }
+
+        public static void Ship(int par_id_order)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "ToShip";
+            myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("@id_order", par_id_order);
+            myCommand.ExecuteNonQuery();
+            MessageBox.Show("Success!");
             conn.Close();
         }
 

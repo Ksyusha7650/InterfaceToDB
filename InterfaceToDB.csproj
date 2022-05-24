@@ -132,6 +132,12 @@
     <Compile Include="MessageBoxes\MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxes\MessageWithQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxes\MessageWithQuestion.Designer.cs">
+      <DependentUpon>MessageWithQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storages\Storage.cs" />
@@ -140,6 +146,18 @@
     </Compile>
     <Compile Include="Storages\StorageForm.Designer.cs">
       <DependentUpon>StorageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Storekeeper\RecieveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storekeeper\RecieveForm.Designer.cs">
+      <DependentUpon>RecieveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Storekeeper\ShipmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storekeeper\ShipmentForm.Designer.cs">
+      <DependentUpon>ShipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Storekeeper\StorekeeperForm.cs">
       <SubType>Form</SubType>
@@ -190,6 +208,9 @@
     <EmbeddedResource Include="MessageBoxes\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxes\MessageWithQuestion.resx">
+      <DependentUpon>MessageWithQuestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -201,6 +222,12 @@
     </Compile>
     <EmbeddedResource Include="Storages\StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storekeeper\RecieveForm.resx">
+      <DependentUpon>RecieveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storekeeper\ShipmentForm.resx">
+      <DependentUpon>ShipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storekeeper\StorekeeperForm.resx">
       <DependentUpon>StorekeeperForm.cs</DependentUpon>

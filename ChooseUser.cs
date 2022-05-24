@@ -47,8 +47,16 @@ namespace InterfaceToDB
                         form.ShowDialog();
                         break;
                     }
+
+                     case USERS.Storekeeper:
+                    {
+                        StorekeeperForm form = new StorekeeperForm(this);
+                        form.ShowDialog();
+                        break;
+                    }
             }
             
         }
+
     }
 }

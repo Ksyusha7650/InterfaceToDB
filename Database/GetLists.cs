@@ -400,6 +400,30 @@ namespace InterfaceToDB
             return products;
         }
 
+        public static List<Shipment> Shipments()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "select * from documentshipments";
+            var reader = myCommand.ExecuteReader();
+            List<Shipment> shipments = new List<Shipment>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int id_prod = reader.GetInt32(1);
+                    DateTime date = reader.GetDateTime(2);
+                    int id_order = reader.GetInt32(3);
+                    Shipment shipment = new Shipment(id, id_prod, date, id_order);
+                    shipments.Add(shipment);
+                }
+            }
+            conn.Close();
+            return shipments;
+        }
+
         #endregion
     }
 }

@@ -42,6 +42,5 @@ namespace InterfaceToDB
             conn.Close();
             return check;
         }
-
     }
 }
