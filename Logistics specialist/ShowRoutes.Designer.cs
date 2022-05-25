@@ -32,14 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableRoutes = new System.Windows.Forms.DataGridView();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.From = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.To = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Transit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.tableRoutes)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableRoutes
@@ -48,6 +50,7 @@
             this.tableRoutes.AllowUserToDeleteRows = false;
             this.tableRoutes.AllowUserToResizeColumns = false;
             this.tableRoutes.AllowUserToResizeRows = false;
+            this.tableRoutes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableRoutes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -72,7 +75,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tableRoutes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.tableRoutes.Location = new System.Drawing.Point(37, 68);
+            this.tableRoutes.Location = new System.Drawing.Point(45, 77);
             this.tableRoutes.Name = "tableRoutes";
             this.tableRoutes.ReadOnly = true;
             this.tableRoutes.RowHeadersVisible = false;
@@ -85,33 +88,8 @@
             this.tableRoutes.RowTemplate.Height = 24;
             this.tableRoutes.RowTemplate.ReadOnly = true;
             this.tableRoutes.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableRoutes.Size = new System.Drawing.Size(629, 304);
+            this.tableRoutes.Size = new System.Drawing.Size(629, 296);
             this.tableRoutes.TabIndex = 0;
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
-            this.buttonOK.Font = new System.Drawing.Font("Noto Sans", 7.8F, System.Drawing.FontStyle.Bold);
-            this.buttonOK.ForeColor = System.Drawing.Color.White;
-            this.buttonOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonOK.Location = new System.Drawing.Point(323, 391);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(83, 39);
-            this.buttonOK.TabIndex = 11;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.UseVisualStyleBackColor = false;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Noto Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(319, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 27);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Routes:";
             // 
             // Id
             // 
@@ -153,24 +131,68 @@
             this.Transit.ReadOnly = true;
             this.Transit.Width = 125;
             // 
+            // buttonOK
+            // 
+            this.buttonOK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonOK.BackColor = System.Drawing.Color.White;
+            this.buttonOK.FlatAppearance.BorderSize = 2;
+            this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOK.Font = new System.Drawing.Font("Noto Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
+            this.buttonOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonOK.Location = new System.Drawing.Point(318, 389);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(83, 39);
+            this.buttonOK.TabIndex = 11;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Noto Sans", 16.2F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
+            this.label2.Location = new System.Drawing.Point(299, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 38);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Routes:";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonOK, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableRoutes, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.78892F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.21108F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(720, 442);
+            this.tableLayoutPanel1.TabIndex = 12;
+            // 
             // ShowRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(720, 442);
-            this.Controls.Add(this.buttonOK);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.tableRoutes);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Noto Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ShowRoutes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ShowRoutes";
             ((System.ComponentModel.ISupportInitialize)(this.tableRoutes)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -184,5 +206,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn From;
         private System.Windows.Forms.DataGridViewTextBoxColumn To;
         private System.Windows.Forms.DataGridViewTextBoxColumn Transit;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

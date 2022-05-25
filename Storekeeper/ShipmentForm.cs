@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace InterfaceToDB
 {
-
     public struct Shipment
     {
         public int ID;
@@ -34,7 +33,6 @@ namespace InterfaceToDB
         {
             InitializeComponent();
             ShowList();
-
         }
         private void ShowList()
         {

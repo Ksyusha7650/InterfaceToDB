@@ -65,7 +65,9 @@ namespace InterfaceToDB
 
         private void buttonRecieve_Click(object sender, EventArgs e)
         {
-
+            int index = tableOrders.SelectedCells[0].RowIndex;
+            int Id = (int)tableOrders.Rows[index].Cells[0].Value;
+            Procedures.Recieve(Id);
         }
     }
 }

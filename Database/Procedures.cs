@@ -51,10 +51,10 @@ namespace InterfaceToDB
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
             myCommand.Connection = conn;
-            myCommand.Parameters.AddWithValue("@wh_to", id_warehouseTo);
-            myCommand.Parameters.AddWithValue("@wh_from", id_warehouseFrom);
-            myCommand.Parameters.AddWithValue("@wh_trans", id_warehouseTrans);
-            myCommand.Parameters.AddWithValue("@duration", dur);
+            myCommand.Parameters.AddWithValue("@id_warehouseTo", id_warehouseTo);
+            myCommand.Parameters.AddWithValue("@id_warehouseFrom", id_warehouseFrom);
+            myCommand.Parameters.AddWithValue("@id_warehouseTrans", id_warehouseTrans);
+            myCommand.Parameters.AddWithValue("@dur", dur);
             myCommand.CommandType = System.Data.CommandType.StoredProcedure;
             myCommand.CommandText = "CreateRoute";
             try
@@ -177,6 +177,19 @@ namespace InterfaceToDB
             MySqlCommand myCommand = new MySqlCommand();
             myCommand.Connection = conn;
             myCommand.CommandText = "ToShip";
+            myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("@id_order", par_id_order);
+            myCommand.ExecuteNonQuery();
+            MessageBox.Show("Success!");
+            conn.Close();
+        }
+
+        public static void Recieve(int par_id_order)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "ToRecieve";
             myCommand.CommandType = System.Data.CommandType.StoredProcedure;
             myCommand.Parameters.AddWithValue("@id_order", par_id_order);
             myCommand.ExecuteNonQuery();

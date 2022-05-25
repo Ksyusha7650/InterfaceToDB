@@ -1,4 +1,4 @@
-﻿namespace InterfaceToDB.Storekeeper
+﻿namespace InterfaceToDB
 {
     partial class RecieveForm
     {
@@ -62,10 +62,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Noto Sans", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
-            this.label1.Location = new System.Drawing.Point(210, 22);
+            this.label1.Location = new System.Drawing.Point(213, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 46);
+            this.label1.Size = new System.Drawing.Size(248, 45);
             this.label1.TabIndex = 20;
             this.label1.Text = "Recievements";
             // 
@@ -84,6 +84,7 @@
             this.buttonOK.TabIndex = 21;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // tableShipments
             // 
@@ -146,7 +147,7 @@
             this.ClientSize = new System.Drawing.Size(692, 436);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RecieveForm";
             this.Text = "RecieveForm";
             this.tableLayoutPanel1.ResumeLayout(false);

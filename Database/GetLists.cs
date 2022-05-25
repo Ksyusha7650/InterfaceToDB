@@ -424,6 +424,30 @@ namespace InterfaceToDB
             return shipments;
         }
 
+        public static List<Recieving> Recievings()
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "select * from documentrecieving";
+            var reader = myCommand.ExecuteReader();
+            List<Recieving> recievings = new List<Recieving>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    int id_prod = reader.GetInt32(1);
+                    DateTime date = reader.GetDateTime(2);
+                    int id_order = reader.GetInt32(3);
+                    Recieving recieving = new Recieving(id, id_prod, date, id_order);
+                    recievings.Add(recieving);
+                }
+            }
+            conn.Close();
+            return recievings;
+        }
+
         #endregion
     }
 }

@@ -20,7 +20,7 @@ namespace InterfaceToDB
             routes = GetLists.GetRoutesList();
             foreach(Route route in routes)
             {
-                tableRoutes.Rows.Add(route.Id, route.duration,  route.id_warehouseTo, route.id_warehouseFrom,
+                tableRoutes.Rows.Add(route.Id, route.duration, route.id_warehouseFrom, route.id_warehouseTo,
                     route.id_warehouseTransit);
             }
         }

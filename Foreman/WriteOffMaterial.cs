@@ -63,7 +63,8 @@ namespace InterfaceToDB
 
         private void buttonWriteOff_Click(object sender, EventArgs e)
         {
-            foreach(WriteOffProd prod in writeOffProds)
+            writeOffProds = GetLists.GetWriteOffList(order);
+            foreach (WriteOffProd prod in writeOffProds)
             {
                 Procedures.DoWriteOff(prod.Id);
             }
