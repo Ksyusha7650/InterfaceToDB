@@ -42,5 +42,26 @@ namespace InterfaceToDB
             conn.Close();
             return check;
         }
+
+        public static bool CheckIDToShip(int idProdOrder)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.Parameters.AddWithValue("@Id", idProdOrder);
+            myCommand.Parameters.AddWithValue("@Status", "Created");
+            myCommand.CommandText = "select exists(select * from transferorder" +
+                " where ID_TransferOrder = @Id and Status = @Status)";
+            bool check = true;
+            using (var reader = myCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    check = reader.GetBoolean(0);
+                }
+            }
+            conn.Close();
+            return check;
+        }
     }
 }

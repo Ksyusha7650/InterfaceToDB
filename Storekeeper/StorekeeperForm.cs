@@ -43,6 +43,7 @@ namespace InterfaceToDB
             int index = tableOrders.SelectedCells[0].RowIndex;
             int Id = (int)tableOrders.Rows[index].Cells[0].Value;
             Procedures.Ship(Id);
+            ShowList();
         }
 
         private void shipmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +69,13 @@ namespace InterfaceToDB
             int index = tableOrders.SelectedCells[0].RowIndex;
             int Id = (int)tableOrders.Rows[index].Cells[0].Value;
             Procedures.Recieve(Id);
+            ShowList();
+        }
+
+        private void recievingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RecieveForm recieveForm = new RecieveForm();
+            recieveForm.ShowDialog();
         }
     }
 }

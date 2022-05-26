@@ -386,7 +386,7 @@ namespace InterfaceToDB
             myCommand.CommandText = "select distinct productName from products p " +
                 "inner join `storage` s on p.ID_Product = s.ID_Product where s.ID_Warehouse = " +
                 "(select distinct ID_WarehouseSender from routes r inner join transferorder t on r.ID_route = " +
-                "t.ID_route where t.ID_TransferOrder = @id_order)  and isFinish = 1; ";
+                "t.ID_route where t.ID_TransferOrder = @id_order) and isFinish = 1; ";
             var reader = myCommand.ExecuteReader();
             List<String> products = new List<String>();
             if (reader.HasRows)

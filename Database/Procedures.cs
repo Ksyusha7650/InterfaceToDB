@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Data;
 
 namespace InterfaceToDB
 {
@@ -130,23 +131,57 @@ namespace InterfaceToDB
             conn.Close();
         }
 
+        public static void InsertTransferOrderWithRoute(int par_wh_to, int par_wh_from)
+        {
+            Connect();
+            MySqlCommand myCommand = new MySqlCommand();
+            myCommand.Connection = conn;
+            myCommand.CommandText = "AgregateTransferOrders";
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("@wh_to", par_wh_to);
+            myCommand.Parameters.AddWithValue("@wh_from", par_wh_from);
+            myCommand.ExecuteNonQuery();
+            conn.Close();
+        }
+      
         public static void InsertOrderToList(int par_wh_to, int par_wh_from)
         {
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
             myCommand.Connection = conn;
             myCommand.CommandText = "AddTransferOrder";
-            myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.Parameters.AddWithValue("@wh_to", par_wh_to);
             myCommand.Parameters.AddWithValue("@wh_from", par_wh_from);
-            try
+            myCommand.Parameters.Add("@ireturnvalue", MySqlDbType.Int32);
+            myCommand.Parameters["@ireturnvalue"].Direction = ParameterDirection.ReturnValue;
+            myCommand.ExecuteScalar();
+            int result = (int)myCommand.Parameters["@ireturnvalue"].Value;
+            switch (result)
             {
-                myCommand.ExecuteNonQuery();
-                MessageBox.Show("Success!");
-            }
-            catch
-            {
-                MessageBox.Show("This route doesn't exists!");
+                case 1:
+                    MessageForm messageCor = new MessageForm("Success!");
+                    messageCor.ShowDialog();
+                    break;
+                case -1:
+                    MessageWithQuestion msg = new MessageWithQuestion(1);
+                    msg.ShowDialog();
+                    if (msg.answer == false)
+                    {
+                        Procedures.InsertTransferOrderWithRoute(par_wh_from, par_wh_to);
+                        MessageForm messageS = new MessageForm("Success!");
+                        messageS.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageForm messageS = new MessageForm("Success!");
+                        messageS.ShowDialog();
+                    }
+                    break;
+                case 0:
+                    MessageForm message = new MessageForm("This route doesn't exists!");
+                    message.ShowDialog();
+                    break;
             }
             conn.Close();
         }
@@ -162,7 +197,7 @@ namespace InterfaceToDB
             try
             {
                 myCommand.ExecuteNonQuery();
-                MessageBox.Show("Success!");
+                 MessageForm msg = new MessageForm("Success!");
             }
             catch
             {
@@ -179,8 +214,17 @@ namespace InterfaceToDB
             myCommand.CommandText = "ToShip";
             myCommand.CommandType = System.Data.CommandType.StoredProcedure;
             myCommand.Parameters.AddWithValue("@id_order", par_id_order);
-            myCommand.ExecuteNonQuery();
-            MessageBox.Show("Success!");
+            try
+            {
+                myCommand.ExecuteNonQuery();
+                MessageForm msg = new MessageForm("Success!");
+                msg.ShowDialog();
+            }
+            catch
+            {
+                MessageForm msg = new MessageForm("This order has already been shipped!");
+                msg.ShowDialog();
+            }
             conn.Close();
         }
 
@@ -193,7 +237,8 @@ namespace InterfaceToDB
             myCommand.CommandType = System.Data.CommandType.StoredProcedure;
             myCommand.Parameters.AddWithValue("@id_order", par_id_order);
             myCommand.ExecuteNonQuery();
-            MessageBox.Show("Success!");
+            MessageForm msg = new MessageForm("Success!");
+            msg.ShowDialog();
             conn.Close();
         }
 

@@ -32,7 +32,7 @@
             this.buttonNo = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelQuestion = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +98,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelQuestion, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -107,16 +107,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(335, 187);
             this.tableLayoutPanel2.TabIndex = 22;
             // 
-            // label1
+            // labelQuestion
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Font = new System.Drawing.Font("Noto Sans", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(329, 77);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Are u sure?";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelQuestion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelQuestion.Font = new System.Drawing.Font("Noto Sans", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelQuestion.Location = new System.Drawing.Point(3, 1);
+            this.labelQuestion.Name = "labelQuestion";
+            this.labelQuestion.Size = new System.Drawing.Size(329, 77);
+            this.labelQuestion.TabIndex = 22;
+            this.labelQuestion.Text = "Are you sure?";
+            this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MessageWithQuestion
             // 
@@ -127,7 +127,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MessageWithQuestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Warning";
@@ -143,6 +143,6 @@
         private System.Windows.Forms.Button buttonNo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelQuestion;
     }
 }

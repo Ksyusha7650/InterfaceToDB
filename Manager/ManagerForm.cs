@@ -54,8 +54,17 @@ namespace InterfaceToDB
         {
             int index = tableOrders.SelectedCells[0].RowIndex;
             int Id = (int)tableOrders.Rows[index].Cells[0].Value;
-            AddShipmentForm shipmentForm = new AddShipmentForm(Id);
-            shipmentForm.ShowDialog();
+            bool check = GetBool.CheckIDToShip(Id);
+            if (check)
+            {
+                AddShipmentForm shipmentForm = new AddShipmentForm(Id);
+                shipmentForm.ShowDialog();
+            }
+            else
+            {
+                MessageForm msg = new MessageForm("This order has already been shipped!");
+                msg.ShowDialog();
+            }
         }
         private void ShowList()
         {
@@ -83,10 +92,13 @@ namespace InterfaceToDB
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            int id_to = Int32.Parse(comboBoxTo.SelectedItem.ToString());
-            int id_from = Int32.Parse(comboBoxFrom.SelectedItem.ToString());
-            Procedures.InsertOrderToList(id_to, id_from);
-            ShowList();
+            if ((comboBoxFrom.SelectedIndex != -1) && (comboBoxTo.SelectedIndex != -1))
+            {
+                int id_to = Int32.Parse(comboBoxTo.SelectedItem.ToString());
+                int id_from = Int32.Parse(comboBoxFrom.SelectedItem.ToString());
+                Procedures.InsertOrderToList(id_to, id_from);
+                ShowList();
+            }
         }
 
         private void showRestToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,7 +117,7 @@ namespace InterfaceToDB
         {
             MessageWithQuestion message = new MessageWithQuestion();
             message.ShowDialog();
-            if (MessageWithQuestion.toDelete)
+            if (message.answer)
             {
                 int index = tableOrders.SelectedCells[0].RowIndex;
                 int Id = (int)tableOrders.Rows[index].Cells[0].Value;

@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.22523F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.77477F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(675, 426);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 426);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
             // label1
@@ -62,12 +62,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Noto Sans", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
-            this.label1.Location = new System.Drawing.Point(213, 22);
+            this.label1.Location = new System.Drawing.Point(264, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(248, 45);
+            this.label1.Size = new System.Drawing.Size(232, 45);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Recievements";
+            this.label1.Text = "Receivement";
             // 
             // buttonOK
             // 
@@ -77,7 +77,7 @@
             this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOK.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(49)))), ((int)(((byte)(44)))));
-            this.buttonOK.Location = new System.Drawing.Point(293, 375);
+            this.buttonOK.Location = new System.Drawing.Point(335, 375);
             this.buttonOK.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(89, 34);
@@ -98,13 +98,13 @@
             this.Product,
             this.Date,
             this.ID_TransferOrder});
-            this.tableShipments.Location = new System.Drawing.Point(35, 93);
+            this.tableShipments.Location = new System.Drawing.Point(50, 93);
             this.tableShipments.Name = "tableShipments";
             this.tableShipments.ReadOnly = true;
             this.tableShipments.RowHeadersVisible = false;
             this.tableShipments.RowHeadersWidth = 51;
             this.tableShipments.RowTemplate.Height = 24;
-            this.tableShipments.Size = new System.Drawing.Size(605, 263);
+            this.tableShipments.Size = new System.Drawing.Size(659, 263);
             this.tableShipments.TabIndex = 0;
             // 
             // ID
@@ -113,6 +113,7 @@
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ID.Width = 125;
             // 
             // Product
@@ -121,7 +122,8 @@
             this.Product.MinimumWidth = 6;
             this.Product.Name = "Product";
             this.Product.ReadOnly = true;
-            this.Product.Width = 125;
+            this.Product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Product.Width = 200;
             // 
             // Date
             // 
@@ -129,7 +131,8 @@
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
-            this.Date.Width = 125;
+            this.Date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Date.Width = 150;
             // 
             // ID_TransferOrder
             // 
@@ -137,19 +140,21 @@
             this.ID_TransferOrder.MinimumWidth = 6;
             this.ID_TransferOrder.Name = "ID_TransferOrder";
             this.ID_TransferOrder.ReadOnly = true;
-            this.ID_TransferOrder.Width = 125;
+            this.ID_TransferOrder.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ID_TransferOrder.Width = 180;
             // 
             // RecieveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(692, 436);
+            this.ClientSize = new System.Drawing.Size(774, 436);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RecieveForm";
-            this.Text = "RecieveForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Recieves";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableShipments)).EndInit();

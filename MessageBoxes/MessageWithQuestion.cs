@@ -12,10 +12,14 @@ namespace InterfaceToDB
 {
     public partial class MessageWithQuestion : Form
     {
-        public static bool toDelete = false;
-        public MessageWithQuestion()
+        public bool answer = false;
+        private int type = 0;
+        public MessageWithQuestion (int type = 0)
         {
             InitializeComponent();
+            this.type = type;
+            string text = (type == 0) ? "Are you sure?" : "You have orders with same routes. Join orders?";
+            labelQuestion.Text = text;
         }
 
         private void buttonNo_Click(object sender, EventArgs e)
@@ -25,7 +29,7 @@ namespace InterfaceToDB
 
         private void buttonYes_Click(object sender, EventArgs e)
         {
-            toDelete = true;
+            answer = true;
             this.Close();
         }
     }

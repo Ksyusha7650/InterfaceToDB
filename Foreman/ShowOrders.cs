@@ -59,7 +59,8 @@ namespace InterfaceToDB
                     WriteOffMaterial writeOff = new WriteOffMaterial(ID_Order);
                     writeOff.ShowDialog();
                     MakeOrdersList();
-                MessageBox.Show("Success!");
+                 MessageForm msg = new MessageForm("Success!");
+                 msg.ShowDialog();
                 }
         }
     }
