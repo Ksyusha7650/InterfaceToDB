@@ -65,6 +65,8 @@ namespace InterfaceToDB
                 MessageForm message = new MessageForm("Added!");
                 message.ShowDialog();
                 LoadListShipments();
+                int index = comboBoxProduct.SelectedIndex;
+                comboBoxProduct.Items.RemoveAt(index);
             }
             catch
             {
